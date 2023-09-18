@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task tracker app</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main__container">
+        <div class="add__task">
+            <label for="taskInput" aria-required="true">add your task here</label>
+            <input type="text" id="taskInput" placeholder="type your task">
+            <button id="addBtn">add</button>
+            <div class="btns">
+                <button id="edit">edit</button>
+                <button id="delete">delete</button>
+            </div>
+        </div>
+
+        <div class="display__task">
+            <ul class="task__list">
+
+            </ul>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>
