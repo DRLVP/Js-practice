@@ -1,24 +1,37 @@
-// ADD TASK 
-const taskInput = document.querySelector('#taskInput');
-const addBtn = document.querySelector('#addBtn');
-const taskList = document.querySelector('.task__list');
+// HTML ELEMENTS
+const taskInput = document.querySelector("#taskInput");
+const addTaskButton = document.querySelector("#addTaskButton");
+const taskList = document.querySelector("#taskList");
 
-let taskArr = [];
+// MAKE ARRAY
+let taskListArr = [];
+function addTask() {
+    const tasks = taskInput.value.trim();
 
-function addTaskList() {
-    let taskName = taskInput.value;
-
-    if (taskName.trim() !== "") {
-        taskArr.unshift(taskName);
+    if (tasks !== "") {
+        taskListArr.unshift(tasks);
         taskInput.value = "";
-        const liElement = document.createElement("li").innerText = `${taskArr.length}`;
 
-        taskList.appendChild(liElement);
-
+        updateTask();
     } else {
-        alert('please enter a task');
+        alert("please enter a task")
     }
 }
 
-addBtn.addEventListener('click', addTaskList);
+function updateTask() {
+    if (taskListArr === "") {
+        taskList.innerHTML = "<p>empty task</p>";
 
+
+    } else {
+        taskListArr.forEach((task, index) => {
+            const li = document.createElement('li');
+            li.innerText = `${index + 1}:${task}`;
+            taskList.appendChild(li);
+        })
+    }
+}
+
+addTaskButton.addEventListener('click', addTask);
+
+updateTask();
