@@ -1,0 +1,30 @@
+//  DRY principle:-- Don't repeat yourself
+
+// closure real world example:--
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>closure and lexical scope</title>
+</head>
+<body>
+    <button type="button" id="green">orange</button>
+    <button type="button" id="coral">coral</button>
+</body>
+<script>
+    function clickHandler(color) {
+        // ene dore jodi ami direct diu tenete ee okl reference jbo ba direct execute hoi jabo tatia button tu a kam nokoribo so ami inner functionor hohayot potham karon lexical scope aru closure or babe inner functionor logote outer function tu jabo
+
+        function colorChange(){
+            document.body.style.backgroundColor = `${color}`
+        }
+        return colorChange;
+    }
+
+    document.querySelector('button:first-child').addEventListener('click', clickHandler('coral'));
+
+    document.getElementById('green').addEventListener('click', clickHandler('blue'));
+</script>
+</html>

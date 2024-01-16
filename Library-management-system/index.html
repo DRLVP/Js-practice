@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+    
+</head>
+<body>
+    <section>
+        <div class="container">
+            <div class="add-book">
+                <input type="text" id="book-name" placeholder="Enter your book name" required>
+                <input type="text" id="book-author" placeholder="Enter the book author" required>
+                <div>
+                    <select name="genere" id="genere" required>
+                        <option value="default">default</option>
+                        <option value="comedy">comedy</option>
+                        <option value="horror">horror</option>
+                        <option value="thriller">thriller</option>
+                        <option value="suspance">suspance</option>
+                        <option value="romantic">romantic</option>
+                    </select>
+                    <button id="addBook">add book</button>
+                </div>
+            </div>
+
+            <div class="books-card">
+                <div class="card">
+                    <p class="message"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+   <script type="module" src="index.js"></script>
+</body>
+</html>

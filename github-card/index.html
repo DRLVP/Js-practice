@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Github Card</title>
+</head>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        color: aliceblue;
+    }
+    section{
+        width: 100%;
+        height: 100vh;
+        background-color:#212121;
+    }
+
+    .main{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1rem;
+    }
+    h1{
+        font-size: 3rem;
+    }
+    .btn{
+        padding: .5rem 2rem;
+        font-size: 1.5rem;
+        background-color: rgb(10, 43, 69);
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    .card{
+        width: 30%;
+        height: 50%;
+        padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+        border-radius: 6px;
+        box-shadow: 2px 4px 8px black;
+
+        img{
+            width: 200px;
+            border-radius: 50%;
+        }
+
+        p{
+            font-size: 1.5rem;
+        }
+    }
+
+</style>
+
+
+<body>
+    <section>
+        <div class="main">
+            <h1 class="heading"> Github Profile</h1>
+            <button class="btn">Load</button>
+            <div class="card">
+    
+            </div>
+        </div>
+    </section>
+
+    <script src="index.js"></script>
+</body>
+</html>
