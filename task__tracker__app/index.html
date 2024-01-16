@@ -1,133 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task Tracker</title>
-    <style>
-        body {
-            font-family: sans-serif;
-        }
-
-        .task-list {
-            list-style: none;
-            padding: 0;
-        }
-
-        .task-list li {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 0.5rem 1rem;
-            border-bottom: 1px solid #ccc;
-        }
-
-        .task-list li input {
-            flex: 1;
-            margin-right: 1rem;
-        }
-
-        .task-list li button {
-            padding: 0.5rem 1rem;
-            background-color: #ccc;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .task-list li button:hover {
-            background-color: #aaa;
-        }
-
-        .filters {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-        }
-
-        .filters button {
-            padding: 0.5rem 1rem;
-            background-color: #ccc;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .filters button:hover {
-            background-color: #aaa;
-        }
-    </style>
+    <title>Todo App</title>
 </head>
-
 <body>
-    <h1>Task Tracker</h1>
-    <div class="filters">
-        <button id="all-tasks">All Tasks</button>
-        <button id="completed-tasks">Completed Tasks</button>
-        <button id="incomplete-tasks">Incomplete Tasks</button>
-    </div>
-    <ul class="task-list">
-        <!-- Task list items will be added here -->
-    </ul>
-    <form id="add-task-form">
-        <input type="text" id="task-name" placeholder="Task Name">
-        <button type="submit">Add Task</button>
-    </form>
-    <script>
-        // Get the task list element
-        const taskList = document.querySelector('.task-list');
-        // Get the filters elements
-        const allTasksButton = document.getElementById('all-tasks');
-        const completedTasksButton = document.getElementById('completed-tasks');
-        const incompleteTasksButton = document.getElementById('incomplete-tasks');
-        // Get the add task form elements
-        const addTaskForm = document.getElementById('add-task-form');
-        const taskNameInput = document.getElementById('task-name');
-        // Initialize the task list
-        let tasks = [];
-        // Load tasks from local storage
-        if (localStorage.getItem('tasks')) {
-            tasks = JSON.parse(localStorage.getItem('tasks'));
-        }
-        // Render the task list
-        function renderTaskList() {
-            // Clear the task list
-            taskList.innerHTML = '';
-            // Add each task to the task list
-            tasks.forEach((task) => {
-                const taskItem = document.createElement('li');
-                taskItem.innerHTML = `
-          <input type="checkbox" ${task.completed ? 'checked' : ''}>
-          <span>${task.name}</span>
-          <button>X</button>
-        `;
-            })
-        }
-        // Add the task item to the task list
-        taskList.appendChild(taskItem);
-        // Add an event listener to the checkbox
-        taskItem.querySelector('input').addEventListener('change', (e) => {
-            // Update the task's completed status
-            task.completed = e.target.checked;
-            // Save the tasks to local storage
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-        });
-        // Add an event listener to the delete button
-        taskItem.querySelector('button').addEventListener('click', (e) => {
-            // Delete the task from the task list
-            tasks = tasks.filter((t) => t.id !== task.id);
-            // Save the tasks to local storage
-            localStorage.setItem('tasks', JSON.stringify(tasks));
-            // Render
-            //          renderTaskList();
-            //          console.log("deleted");
-            //        alert("Deleted")
-            //            window.location.reload();
-            //              location.reload();
-            //                $(this).closest(".item").remove();
-            // Remove the task item from the DOM and save it in a variable for later use
-            //           var parentDiv = this.parentNode, childDivs = parentDiv.childNodes;
+    <section>
+        <h1>Add your Todo</h1>
+        <div class="container">
+            <div class="input-section">
+                <input type="text" id="todoInput" placeholder="Enter todo here...">
+                <button class="addTodoBtn">add</button>
+            </div>
+            <div>
+                <ul class="todo-list">
 
-        })
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,37 +1,37 @@
-// HTML ELEMENTS
-const taskInput = document.querySelector("#taskInput");
-const addTaskButton = document.querySelector("#addTaskButton");
-const taskList = document.querySelector("#taskList");
+// get element from the DOM
+const todoInput = document.querySelector('#todoInput');
+const btn = document.querySelector('.addTodoBtn');
+const todoList = document.querySelector('.todo-list');
 
-// MAKE ARRAY
-let taskListArr = [];
-function addTask() {
-    const tasks = taskInput.value.trim();
+document.addEventListener('DOMContentLoaded', ()=>{
+    btn.addEventListener('click', ()=>{
+        const todo = todoInput.value.trim();
+        const li = document.createElement('li');
+        li.innerHTML = `<input type="checkbox" id="check"/>
+        <span id="todo">${todo}</span>
+        <img src="delete.svg" id="del"/>`;
+        todoList.prepend(li);
 
-    if (tasks !== "") {
-        taskListArr.unshift(tasks);
-        taskInput.value = "";
+        // input field is clear after add todo
+        todoInput.value= '';
 
-        updateTask();
-    } else {
-        alert("please enter a task")
-    }
-}
-
-function updateTask() {
-    if (taskListArr === "") {
-        taskList.innerHTML = "<p>empty task</p>";
-
-
-    } else {
-        taskListArr.forEach((task, index) => {
-            const li = document.createElement('li');
-            li.innerText = `${index + 1}:${task}`;
-            taskList.appendChild(li);
+        // delete btn
+        const del = document.querySelector('#del');
+        del.addEventListener('click', ()=>{
+            del.parentNode.remove();
         })
-    }
-}
-
-addTaskButton.addEventListener('click', addTask);
-
-updateTask();
+    
+        // when check is active the todo is mark
+        const checkbox = document.getElementById("check");
+        const myTodo = document.querySelector('#todo');
+        checkbox.addEventListener('change', ()=>{
+            if(!checkbox.checked) {
+                myTodo.style.textDecoration = 'none';
+            } else {
+                myTodo.style.textDecoration = 'line-through';
+            };
+        })
+    
+    });
+    
+})
